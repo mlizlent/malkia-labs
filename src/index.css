@@ -1,0 +1,255 @@
+/* Malkia Labs Design System */
+:root {
+  /* Colors */
+  --lilac-50: #F7F3FD;
+  --lilac-100: #EDE4FA;
+  --lilac-200: #DCCBF5;
+  --lilac-300: #C6A9EE;
+  --lilac-500: #A678E0;
+  --lilac-600: #8B55CC;
+  --lilac-700: #6F3AAE;
+  --lilac-900: #3F2266;
+  
+  --slate-900: #1E2229;
+  --slate-700: #3B424D;
+  --slate-500: #6B7280;
+  
+  --grey-100: #F4F5F7;
+  --grey-200: #E5E7EB;
+  
+  --white: #FFFFFF;
+  
+  /* Typography */
+  --fs-display: clamp(2.25rem, 7vw + 0.5rem, 4rem);
+  --fs-h2: clamp(1.75rem, 3.5vw + 0.75rem, 2.75rem);
+  --fs-h3: clamp(1.125rem, 1vw + 0.9rem, 1.375rem);
+  --fs-lead: clamp(1.0625rem, 0.6vw + 0.95rem, 1.375rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  
+  --lh-tight: 1.15;
+  --lh-body: 1.65;
+  
+  /* Spacing */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  
+  --gutter: 1rem;
+  --section-y: var(--space-16);
+  --container: 72rem;
+  
+  /* Border radius */
+  --radius-sm: .5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-pill: 999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgb(30 34 41 / .06);
+  --shadow-md: 0 8px 24px rgb(111 58 174 / .10);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 2rem;
+    --section-y: var(--space-24);
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--slate-700);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3 {
+  font-family: "Poppins", system-ui, sans-serif;
+  color: var(--slate-900);
+  line-height: var(--lh-tight);
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--fs-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+  max-width: 65ch;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.section--tint {
+  background: var(--lilac-50);
+}
+
+.section--grey {
+  background: var(--grey-100);
+}
+
+.eyebrow {
+  font: 600 var(--fs-small)/1 "Inter";
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--lilac-700);
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--lilac-700);
+  color: var(--white);
+  padding: var(--space-2) var(--space-4);
+  text-decoration: none;
+  z-index: 100;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: .75rem 1.5rem;
+  font: 600 1rem/1 "Inter";
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background: var(--lilac-700);
+  color: var(--white);
+}
+
+.btn--primary:hover {
+  background: var(--lilac-900);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--lilac-700);
+  border: 2px solid var(--lilac-700);
+}
+
+.btn--secondary:hover {
+  background: var(--lilac-50);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--lilac-300);
+  outline-offset: 2px;
+}
+
+/* Cards */
+.card {
+  background: var(--white);
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.section--tint .card {
+  border-color: var(--lilac-100);
+}
+
+/* Icon chip */
+.icon-chip {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--lilac-100);
+  color: var(--lilac-700);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+/* Avatar */
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--lilac-100);
+  color: var(--lilac-700);
+  font: 700 1.5rem/1 "Poppins";
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+/* SVG icons */
+.icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
